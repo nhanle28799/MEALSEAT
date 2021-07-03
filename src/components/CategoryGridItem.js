@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     height: 150,
     margin: 15,
+    elevation:5,
   },
   title: {
     fontWeight: 'bold',

@@ -1,7 +1,6 @@
 import React from 'react';
 import {ImageBackground, StyleSheet, Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-
 export default function MealItem(props) {
   return (
     <View style={styles.container}>
