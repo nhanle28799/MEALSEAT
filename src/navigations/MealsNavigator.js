@@ -110,24 +110,60 @@ const FavScreen = props => {
           headerTitleAlign: 'center',
           headerStyle: {
             backgroundColor: Color.primary,
+            headerRightContainerStyle: {
+              marginRight: 10,
+            },
+            headerRight: () => (
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Favorite')}
+                styles={styles.rightButton}>
+                <Text style={styles.textbtn}>+</Text>
+              </TouchableOpacity>
+            ),
           },
-          headerRightContainerStyle: {
-            marginRight: 10,
-          },
-          headerRight: () => (
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Favorite')}
-              styles={styles.rightButton}>
-              <Text style={styles.textbtn}>+</Text>
-            </TouchableOpacity>
-          ),
           headerTintColor: 'white',
         })}
       />
     </Stack.Navigator>
   );
 };
-
+const Filternav = props => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Filter"
+        component={FilterScreen}
+        options={({navigation, route}) => ({
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: Color.primary,
+          },
+          headerTintColor: 'white',
+          headerLeftContainerStyle: {
+            marginLeft: 15,
+          },
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => navigation.toggleDrawer()}
+              styles={styles.rightButton}>
+              <Text style={styles.textbtn}>=</Text>
+            </TouchableOpacity>
+          ),
+          headerRightContainerStyle: {
+            marginRight: 10,
+          },
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => console.log(route.params.save)}
+              styles={styles.rightButton}>
+              <Text style={styles.textbtn}>==</Text>
+            </TouchableOpacity>
+          ),
+        })}
+      />
+    </Stack.Navigator>
+  );
+};
 const Tab = createBottomTabNavigator();
 const MealsTabNavigator = props => {
   return (
@@ -163,7 +199,7 @@ const drawernav = props => {
     <NavigationContainer>
       <Drawer.Navigator>
         <Drawer.Screen name="Favorite" component={MealsTabNavigator} />
-        <Drawer.Screen name="Filter" component={FilterScreen} />
+        <Drawer.Screen name="Filter" component={Filternav} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

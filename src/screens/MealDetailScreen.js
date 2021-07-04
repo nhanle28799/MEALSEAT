@@ -31,11 +31,11 @@ export default function MealDetailScreen(props) {
         </View>
         <Text style={styles.titletext}>Ingredients</Text>
         {selectItem.ingredients.map(ingredient => (
-          <ListItem text={ingredient} />
+          <ListItem text={ingredient} key={ingredient} />
         ))}
         <Text style={styles.titletext}>Steps</Text>
         {selectItem.steps.map(step => (
-          <ListItem text={step} />
+          <ListItem text={step} key={step} />
         ))}
       </View>
     </ScrollView>
